@@ -93,11 +93,13 @@ class Notes:
          return(render.index("Notes", notes))
 
 def get_content(basedir, uri):
-    print uri
+    """
+    Find locals content files that conform to same dir 
+    structure as URI. Local basedir is configured in 
+    config.py.
+    """
     filename = urlparse.urlsplit(uri)[-3]
-    print filename
     filepath = config['site.content_dir'] + filename
-    print filepath
     try:
         return open(filepath).read()
     except:
