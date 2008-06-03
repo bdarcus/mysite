@@ -1,0 +1,46 @@
+$def with (title, articles, books)
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <head profile="http://www.w3.org/2003/g/data-view">
+    <title>$title</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <link rel="transformation" href="http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl" />
+    <link 
+        rel="stylesheet" 
+        type="text/css" 
+        href="/static/css/screen.css" />
+  </head>
+  <body>
+    $:render.header()
+    <div id="content" about="http://bruce.darcus.name/publications">
+      <h1 class="title" property="dc:title">$title</h1>
+      <div id="books">
+	<h2>Books</h2>
+        <ul>
+$for book in books:
+    $if book.title:
+          <li><a href="$rel_uri(book.resUri)">$book.title</a></li>
+
+	  
+        </ul>
+      </div>
+      <div id="articles">
+	<h2>Articles</h2>
+        <ul>
+$for article in articles:
+    $if article.title:
+          <li><a href="$rel_uri(article.resUri)">$article.title</a></li>
+
+	  
+        </ul>
+      </div>
+      </div>
+      $:render.footer()
+  </body>
+</html>

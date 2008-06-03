@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <head profile="http://www.w3.org/2003/g/data-view">
+    <title>Colophon</title>
+    <link rel="transformation" href="http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl" />
+    <link 
+        rel="stylesheet" 
+        type="text/css" 
+        href="/static/css/screen.css" />
+  </head>
+  <body>
+   $:render.header()
+    <div id="content">
+      <h1 class="title">Colophon</h1>
+      <p>This website is created using open standards technology and free software. For those
+      interested in details, the site is cobbled together using:</p>
+      <ul>
+	<li><a href="http://www.w3.org/RDF/">RDF</a> for flexible and web-friendly data modeling</li>
+	<li><a href="http://www.w3.org/TR/xhtml-rdfa-primer/">RDFa</a> for embedded metadata; most content here has it</li>
+	<li><a href="http://dublincore.org/">Dublin Core</a>, <a href="http://www.foaf-project.org/">FOAF</a>,
+	and the <a href="http://bibliontology.com/">Bibliographic Ontology</a> for data encoding</li>
+	<li>Python, including libraries like:
+	  <ul>
+	    <li><a href="http://rdflib.net">RDFLib</a> for basic RDF storage and manipulation</li>
+	    <li><a href="http://www.openvest.com/trac/wiki/RDFAlchemy">RDFAlchemy</a> for RDF-Object
+	    mapping to make it easier to display</li>
+	    <li><a href="http://webpy.org">web.py</a> to map URLs to objects to display templates</li>
+	  </ul>
+	</li>
+	<li><a href="http://git.or.cz/">Git</a> for managing the files</li>
+	<li>XHTML and CSS</li>
+	<li>emacs for coding and writing</li>
+      </ul>
+    </div>
+   $:render.footer()
+  </body>
+</html>

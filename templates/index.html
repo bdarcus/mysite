@@ -1,0 +1,33 @@
+$def with (title, index)
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <head profile="http://www.w3.org/2003/g/data-view">
+    <title>$title</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <link rel="transformation" href="http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl" />
+    <link 
+        rel="stylesheet" 
+        type="text/css" 
+        href="/static/css/screen.css" />
+  </head>
+  <body>
+   $:render.header()
+    <div id="content">
+      <h1 class="title">$title</h1>
+      <ol>
+$for item in index:
+    $if item.title:
+        <li><a href="$rel_uri(item.resUri)">$item.title</a></li>
+
+	  
+      </ol>
+    </div>
+   $:render.footer()
+  </body>
+</html>

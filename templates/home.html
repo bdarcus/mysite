@@ -1,0 +1,32 @@
+$def with (agent)
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <head profile="http://www.w3.org/2003/g/data-view">
+    <title>Home | $agent.name</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+    <link rel="transformation" href="http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl" />
+    <link 
+        rel="stylesheet" 
+        type="text/css" 
+        href="/static/css/screen.css" />
+    <link rel="openid.server" href="http://www.myopenid.com/server">
+    <link rel="openid.delegate" href="http://bruce.d.arcus.myopenid.com/">
+  </head>
+  <body>
+    <div class="home">
+      <h2>$agent.name</h2>
+      <ul>
+	<li><a href="about">about</a></li>
+	<li><a href="notes">notes</a></li>
+	<li><a href="publications">publications</a></li>
+	<li><a href="photos">photos</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

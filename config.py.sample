@@ -1,0 +1,9 @@
+# 'sleepycat://~/working/rdflib_store'
+# 'mysql://user:pass@localhost/rdflib_db'
+{
+    'rdfalchemy.dburi' : 'sleepycat://~/rdflib_store',
+    'rdfalchemy.identifier' : 'http://bruce.darcus.name',
+    'about.name' : "Bruce D'Arcus",
+    'about.uri' : 'http://bruce.darcus.name/about#me',
+    'site.content_dir' : '~/myweb/content'
+}
