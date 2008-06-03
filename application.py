@@ -50,7 +50,7 @@ web.template.Template.globals['markdown'] = markdown2.markdown
 
 app = web.application(urls, globals())
 
-about = Person(URIRef(config['about.uri']))
+me = Person(URIRef(config['about.uri']))
 notes = []
 photos = []
 articles = []
@@ -74,11 +74,11 @@ for category in Concept.ClassInstances():
 
 class Home:
      def GET(self):
-         return(render.home(about))
+         return(render.home(me))
 
 class About:
      def GET(self):
-         return(render.about(about))
+         return(render.about(me))
 
 class Colophon:
      def GET(self):
