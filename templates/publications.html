@@ -9,15 +9,10 @@ $def with (title, articles, books)
 
   <head profile="http://www.w3.org/2003/g/data-view">
     <title>$title</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-    <link rel="transformation" href="http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl" />
-    <link 
-        rel="stylesheet" 
-        type="text/css" 
-        href="/static/css/screen.css" />
+    $:render.header()
   </head>
   <body>
-    $:render.header()
+    $:render.menu()
     <div id="content" about="http://bruce.darcus.name/publications">
       <h1 class="title" property="dc:title">$title</h1>
       <div id="books">

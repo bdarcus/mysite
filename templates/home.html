@@ -9,12 +9,7 @@ $def with (agent)
 
   <head profile="http://www.w3.org/2003/g/data-view">
     <title>Home | $agent.name</title>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
-    <link rel="transformation" href="http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl" />
-    <link 
-        rel="stylesheet" 
-        type="text/css" 
-        href="/static/css/screen.css" />
+    $:render.header()
     <link rel="openid.server" href="http://www.myopenid.com/server">
     <link rel="openid.delegate" href="http://bruce.d.arcus.myopenid.com/">
   </head>

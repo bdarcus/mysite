@@ -9,14 +9,10 @@ $def with (agent)
 
   <head profile="http://www.w3.org/2003/g/data-view">
     <title>About | $agent.name</title>
-    <link rel="transformation" href="http://www-sop.inria.fr/acacia/soft/RDFa2RDFXML.xsl" />
-    <link 
-        rel="stylesheet" 
-        type="text/css" 
-        href="/static/css/screen.css" />
+    $:render.header()
   </head>
   <body>
-   $:render.header()
+   $:render.menu()
     <div id="content" about="$agent.resUri">
       <h1 class="title">About <span property="foaf:name">$agent.name</foaf></h1>
       <p></p>
