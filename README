@@ -20,5 +20,5 @@ Requirements
 
 * RDFLib
 * RDFAlchemy
-* web.py
+* web.py (0.3 dev version)
 
