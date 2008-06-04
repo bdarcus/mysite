@@ -1,6 +1,6 @@
 body { font-family: 'Lucida Grande'; padding:0; margin:0; font-size: 85%; }
-a { color: darkblue; }
-a:visited { color: #171717; }
+a { color: darkblue; text-decoration: none;}
+a:visited { color: blue; }
 a:hover { color: #696969; }
 
 #content { min-height: 500px; padding: 4em; padding-left: 6em; width: 70%; }
