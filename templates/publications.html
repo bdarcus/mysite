@@ -20,7 +20,7 @@ $def with (title, articles, books)
         <ul>
 $for book in books:
     $if book.title:
-          <li><a href="$rel_uri(book.resUri)">$book.title</a></li>
+          <li>$book.date, <a href="$rel_uri(book.resUri)">$book.title</a></li>
 
 	  
         </ul>
@@ -30,7 +30,7 @@ $for book in books:
         <ul>
 $for article in articles:
     $if article.title:
-          <li><a href="$rel_uri(article.resUri)">$article.title</a></li>
+          <li>$article.issued, <a href="$rel_uri(article.resUri)">$article.title</a>, <em>$article.periodical.title</em> <a href="http://dx.doi.org/$article.doi">doi:$article.doi</a>.</li>
 
 	  
         </ul>
