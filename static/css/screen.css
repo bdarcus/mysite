@@ -8,7 +8,7 @@ a { text-decoration: none; }
 
 #navigation { float:left; list-style: none; }
 #navigation li { display: inline; }
-#navigation li a {  padding: 2em; float:left; color:silver; text-transform: uppercase; text-decoration:none; font-size:12px; margin-top: 45px; letter-spacing: 4px; }
+#navigation li a {  padding: 1.5em; float:left; color:silver; text-transform: uppercase; text-decoration:none; font-size:12px; margin-top: 50px; letter-spacing: 4px; }
 #navigation li a:hover { color: yellow; }
 #navigation li > a#colophon-link { float:right; color:gray; margin-left: 20em;}
 
