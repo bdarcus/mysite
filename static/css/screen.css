@@ -27,8 +27,8 @@ div#menu-content { padding: 2em; margin-left: -90px; margin-top: 100px;  }
 #content h2 { font-size: 125%; }
 #content h3 { font-size: 110%; }
 #content h1.title { color: darkblue; font-size: 200%; }
-#content a { border-bottom:1px dotted #444; color: black; font-weight: bold; }
-#content a:visited { color: darkgreen; }
+#content a { border-bottom:1px dotted #444; color: darkgreen; font-weight: bold; }
+#content a:visited { color: black; }
 #content a:hover { color: #696969; }
 
 p + h1 { margin-top: 2em; }
@@ -38,10 +38,11 @@ div.subjects { background: #FFFFCC; padding: 0.5em; padding-left: 4em; margin-bo
 
 div.note { margin-top:5em; font-size: 80%; padding: 1em; background: #FFFFCC; }
 
-#content .content { margin-left: 10%; width: 50%; line-height: 1.7em;  }
+#content { line-height: 1.7em; }
+#content .content { margin-left: 10%; width: 50%; }
 #content p { font-size: 12px; text-align: justify; }
 #content li { font-size: 12px; }
 #content p + p {text-indent:2em;margin-top:-0.5em;}
-#content .abstract { padding: 2em; margin-bottom: 2em; width: 70%; border: solid silver 1px; line-height: 1.7em; font-size: 90%; }
+#content .abstract { padding: 2em; margin-bottom: 2em; width: 70%; border: solid silver 1px; font-size: 90%; }
 #content .abstract h2 { font-size; 100%;} 
 

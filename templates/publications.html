@@ -30,7 +30,7 @@ $for book in books:
         <ul>
 $for article in articles:
     $if article.title:
-          <li>$article.issued, <a href="$rel_uri(article.resUri)">$article.title</a>, <em>$article.periodical.title</em> <a href="http://dx.doi.org/$article.doi">doi:$article.doi</a>.</li>
+          <li>$article.issued, <a href="$rel_uri(article.resUri)">$article.title</a>, <em>$article.periodical.title</em> doi:<a href="http://dx.doi.org/$article.doi">$article.doi</a>.</li>
 
 	  
         </ul>
