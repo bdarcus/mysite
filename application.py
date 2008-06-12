@@ -37,6 +37,7 @@ urls = (
   '/about',  'About',
   '/categories', 'Categories',
   '/photos', 'Photos',
+  '/links', 'Links',
   '/publications', 'Publications',
   )
 
@@ -56,6 +57,7 @@ photos = []
 articles = []
 books = []
 categories = []
+bookmarks = []
 
 for article in AcademicArticle.ClassInstances():
     articles.append(article)
@@ -71,6 +73,9 @@ for note in Note.ClassInstances():
 
 for category in Concept.ClassInstances():
     categories.append(category)
+
+for bookmark in Bookmark.ClassInstances():
+    bookmarks.append(bookmark)
 
 class Home:
      def GET(self):
@@ -109,25 +114,33 @@ class Category:
     def GET(self, basedir, slug):
         uri = config['rdfalchemy.identifier'] + basedir + slug
         category = Concept(URIRef(uri))
+        # need to grab related rdfSubject instances using the subjects attribute
         link_uri = basedir + slug
         return(render.category(category, link_uri))
 
 class DocItem:
     
     def GET(self, basedir, slug):
-         uri = config['rdfalchemy.identifier'] + basedir + slug
-         doc = Document(URIRef(uri))
-         content_uri = doc.formats[0] if doc.formats else None
-         content = get_content(basedir, content_uri.resUri) if content_uri else None
-         return(render.item(doc, content))
+        uri = config['rdfalchemy.identifier'] + basedir + slug
+        doc = Document(URIRef(uri))
+        content_uri = doc.formats[0] if doc.formats else None
+        content = get_content(basedir, content_uri.resUri) if content_uri else None
+        return(render.item(doc, content))
 
 class Photos:
-     def GET(self):
-         return(render.index("Photos", photos))
+    def GET(self):
+        return(render.index("Photos", photos))
+
+class Links:
+    def GET(self):
+        return(render.links(bookmarks))
 
 class Publications:
-     def GET(self):
-         return(render.publications("Publications", articles, books))
+    def GET(self):
+        return(render.publications("Publications", articles, books))
+
+print len(bookmarks), " Bookmark instances."
+print len(categories), " Concept instances."
 
 if __name__ == "__main__": app.run()
 

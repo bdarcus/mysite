@@ -10,7 +10,8 @@ a { text-decoration: none; }
 #navigation li { display: inline; }
 #navigation li a {  padding: 1.5em; float:left; color:silver; text-transform: uppercase; text-decoration:none; font-size:12px; margin-top: 50px; letter-spacing: 4px; }
 #navigation li a:hover { color: yellow; }
-#navigation li > a#colophon-link { float:right; color:gray; margin-left: 20em;}
+#navigation li > a#colophon-link { float:right; color:gray; margin-left: 20em; }
+#navigation li > a#colophon-link:hover { color: yellow; }
 
 #content li { margin-bottom: 1.3em; margin-top: 1.3em; }
 
@@ -18,15 +19,15 @@ div.home { margin-left: -220px; position: absolute; top: 100px; left: 50%; width
 .home p { color: white; }
 .home a { color: white; }
 .home a:hover { color: yellow; }
-.home h2 { text-transform: uppercase; font-size: 110%; letter-spacing: 10px; margin-bottom: 4em; font-weight: normal; }
+.home h2 { text-transform: uppercase; font-size: 110%; letter-spacing: 10px; margin-top: 1em; margin-bottom: 3em; font-weight: normal; }
 div.home ul { list-style: none; }
-div.home li { margin-top: 4em; text-align: center; margin-left: -40px; letter-spacing: 3px; }
-div#menu-content { padding: 2em; margin-left: -90px; margin-top: 100px;  }
+div.home li { margin-top: 2em; text-align: center; margin-left: -40px; letter-spacing: 3px; font-size: 90%; }
+div#menu-content { padding: 2em; margin-left: -90px; margin-top: 5px;  }
 
-#content h1 { font-size: 140%; }
-#content h2 { font-size: 125%; }
+#content h1 { font-size: 130%; }
+#content h2 { font-size: 120%; }
 #content h3 { font-size: 110%; }
-#content h1.title { color: darkblue; font-size: 200%; }
+#content h1.title { color: darkblue; font-size: 150%; }
 #content a { border-bottom:1px dotted #444; color: darkgreen; font-weight: bold; }
 #content a:visited { color: black; }
 #content a:hover { color: #696969; }
@@ -45,4 +46,6 @@ div.note { margin-top:5em; font-size: 80%; padding: 1em; background: #FFFFCC; }
 #content p + p {text-indent:2em;margin-top:-0.5em;}
 #content .abstract { padding: 2em; margin-bottom: 2em; width: 70%; border: solid silver 1px; font-size: 90%; }
 #content .abstract h2 { font-size; 100%;} 
+
+.quiet { color: gray; }
 

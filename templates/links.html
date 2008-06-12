@@ -1,0 +1,32 @@
+$def with (links)
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <head profile="http://www.w3.org/2003/g/data-view">
+    <title>Links</title>
+    $:render.header()
+  </head>
+  <body>
+    $:render.menu()
+    <div id="content" about="http://bruce.darcus.name/links">
+      <h1 class="title" property="dc:title">Links</h1>
+        <ul>
+$for link in links:
+          <li about="$link.resUri">
+	    <h2><a href="$link.resUri">$link.recalls.title</a></h2>
+	    <div class="metadata quiet">
+	     $link.recalls.rdf_type | $link.modified
+	    </div>
+	  </li>
+
+	  
+        </ul>
+      </div>
+      $:render.footer()
+  </body>
+</html>
