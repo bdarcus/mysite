@@ -47,5 +47,5 @@ div.note { margin-top:5em; font-size: 80%; padding: 1em; background: #FFFFCC; }
 #content .abstract { padding: 2em; margin-bottom: 2em; width: 70%; border: solid silver 1px; font-size: 90%; }
 #content .abstract h2 { font-size; 100%;} 
 
-.quiet { color: gray; }
+.quiet { color: gray; font-size: 90%; }
 

@@ -5,6 +5,7 @@ $def with (links)
     "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:bm="http://www.w3.org/2002/01/bookmark#"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
 
   <head profile="http://www.w3.org/2003/g/data-view">
@@ -18,9 +19,13 @@ $def with (links)
         <ul>
 $for link in links:
           <li about="$link.resUri">
-	    <h2><a href="$link.resUri">$link.recalls.title</a></h2>
+	    <h2>
+	      <a rel="bm:recalls" href="$link.recalls.resUri">
+	        <span property="dc:title">$link.recalls.title</span>
+	      </a>
+	    </h2>
 	    <div class="metadata quiet">
-	     $link.recalls.rdf_type | $link.modified
+	     source: $link.container_title | added $link.modified
 	    </div>
 	  </li>
 

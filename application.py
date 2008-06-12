@@ -7,6 +7,9 @@ from web.utils import safemarkdown
 from bibo.models import *
 from rdfalchemy.engine import *
 from rdflib import ConjunctiveGraph, Namespace, Literal, URIRef
+from rdflib.store import Store, NO_STORE, VALID_STORE
+from rdflib import plugin
+
 import markdown2
 import urlparse
 
@@ -25,7 +28,10 @@ except:
     print "Unexpected error:", sys.exc_info()[0]
     raise
 
-graph = rdfSubject.db = engine_from_config(config)
+store = plugin.get('MySQL', Store)('rdflib_db')
+store.open(config['rdflib.config'])
+
+graph = rdfSubject.db = ConjunctiveGraph(store)
 
 urls = (
   '/', 'Home',
@@ -76,6 +82,11 @@ for category in Concept.ClassInstances():
 
 for bookmark in Bookmark.ClassInstances():
     bookmarks.append(bookmark)
+
+bookmarks.sort()
+books.sort()
+articles.sort()
+categories.sort()
 
 class Home:
      def GET(self):
