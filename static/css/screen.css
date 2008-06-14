@@ -1,7 +1,7 @@
 body { font-family: 'Lucida Grande'; padding:0; margin:0; font-size: 85%; }
 a { text-decoration: none; }
 
-#content { min-height: 500px; padding: 4em; padding-left: 6em; width: 70%; }
+#content { min-height: 500px; padding: 4em; padding-left: 6em; width: 50%; }
 
 #header { background: transparent url(../img/top-bg.png) repeat-x; height: 120px; }
 #footer { font-family: 'Warnock Pro', 'Garamond Pro', Palatino, serif; font-size: 90%; text-align: center; border-top:1px dotted #ccc; padding:32px 0 0 0; margin:32px 0 0 0; letter-spacing: 0.3em; }
@@ -40,7 +40,7 @@ div.subjects { background: #FFFFCC; padding: 0.5em; padding-left: 4em; margin-bo
 div.note { margin-top:5em; font-size: 80%; padding: 1em; background: #FFFFCC; }
 
 #content { line-height: 1.7em; }
-#content .content { margin-left: 10%; width: 50%; }
+#content .content { margin-left: 10%; width: 70%; }
 #content p { font-size: 12px; text-align: justify; }
 #content li { font-size: 12px; }
 #content p + p {text-indent:2em;margin-top:-0.5em;}
@@ -48,4 +48,6 @@ div.note { margin-top:5em; font-size: 80%; padding: 1em; background: #FFFFCC; }
 #content .abstract h2 { font-size; 100%;} 
 
 .quiet { color: gray; font-size: 90%; }
+
+dt { font-weight: bold; }
 

@@ -14,8 +14,16 @@ $def with (agent)
   <body>
    $:render.menu()
     <div id="content" about="$agent.resUri">
-      <h1 class="title">About <span property="foaf:name">$agent.name</foaf></h1>
-      <p></p>
+      <h1 class="title">About <span property="foaf:name">$agent.name</span></h1>
+      <p>$agent.description</p>
+      <dl>
+	<dt>interests</dt>
+	<dd>
+$for interest in agent.interests:
+    <a href="$rel_uri(interest.resUri)">$interest.pref_label</a>
+
+	</dd>
+      </dl>
     </div>
    $:render.footer()
   </body>
