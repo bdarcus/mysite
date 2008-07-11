@@ -70,45 +70,55 @@ def pubs_to_html():
     articles = sorted(AcademicArticle.ClassInstances())
     books = sorted(Book.ClassInstances())
     chapters = sorted(Chapter.ClassInstances())
+
     # keep track of number of objects
     artcount = 0
     bookcount = 0
     chaptercount = 0
+
     # create index
     index_filename = outdir + '/publications/index.xhtml'
     index_content = render.publications(me, articles, books).__str__()
     write_file(index_filename, index_content)
-    # iterate through pubs to grab external triples (from, for example, lcsh.info)
+
+    # iterate through pubs
     for article in articles:
+        # grab external triples (from, for example, lcsh.info)
         for asub in article.subjects:
             load_subjects(asub.resUri)
-    for book in books:
-        for bsub in book.subjects:
-            load_subjects(bsub.resUri)
-    for chapter in chapters:
-        for csub in chapter.subjects:
-            load_subjects(csub.resUri)
-    for article in articles:
+
+        # write out article files
         artcount += 1
         filename = outdir + get_relative_uri(article.resUri)
         content = render.article(article).__str__()
         subgraph = get_subgraph(article.resUri)
         write_file(filename + '.rdf', subgraph.serialize())
         write_file(filename + '.xhtml', content)
+
     for book in books:
+        for bsub in book.subjects:
+            load_subjects(bsub.resUri)
+
+        # write out book files
         bookcount += 1
         filename = outdir + get_relative_uri(book.resUri)
         content = render.book(book).__str__()
         subgraph = get_subgraph(book.resUri)
         write_file(filename + '.rdf', subgraph.serialize())
         write_file(filename + '.xhtml', content)
+
     for chapter in chapters:
+        for csub in chapter.subjects:
+            load_subjects(csub.resUri)
+
+        # write out chapter files
         chaptercount += 1
         filename = outdir + get_relative_uri(chapter.resUri)
         content = render.chapter(chapter).__str__()
         subgraph = get_subgraph(chapter.resUri)
         write_file(filename + '.rdf', subgraph.serialize())
         write_file(filename + '.xhtml', content)
+
     print "    generated:"
     print "          "  + str(artcount) + " article page(s)"
     print "          "  + str(bookcount) + " book page(s)"
@@ -118,6 +128,8 @@ def links_to_html():
     print "generating categories pages"
     links = sorted(Bookmark.ClassInstances())
     count = 0
+
+    # create index file
     index_filename = outdir + '/links/index.xhtml'
     index_content = render.links(links).__str__()
     write_file(index_filename, index_content)
