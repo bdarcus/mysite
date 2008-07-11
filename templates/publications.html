@@ -1,0 +1,40 @@
+$def with (author, articles, books)
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <head profile="http://www.w3.org/2003/g/data-view">
+    <title>$author.name | Publications</title>
+    $:render.header()
+  </head>
+  <body>
+    $:render.menu()
+    <div id="content" about="publications">
+      <h1 class="title" property="dc:title">Publications</h1>
+      <div id="books">
+	<h2>Books</h2>
+        <ul>
+$for book in books:
+    $if book.title:
+          <li>$book.date, <a href="$rel_uri(book.resUri)">$book.title</a></li>
+
+	  
+        </ul>
+      </div>
+      <div id="articles">
+	<h2>Articles</h2>
+        <ul>
+$for article in articles:
+    $if article.title:
+          <li>$article.issued, <a href="$rel_uri(article.resUri)">$article.title</a>, <em>$article.periodical.title</em> doi:<a href="http://dx.doi.org/$article.doi">$article.doi</a>.</li>
+
+	  
+        </ul>
+      </div>
+      </div>
+      $:render.footer()
+  </body>
+</html>

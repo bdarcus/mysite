@@ -1,0 +1,48 @@
+$def with (article)
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:bio="http://purl.org/vocab/bio/0.1/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <head profile="http://www.w3.org/2003/g/data-view">
+    <title>$article.title</title>
+    $:render.header()
+  </head>
+  <body>
+   $:render.menu()
+    <div id="content" about="$article.resUri" typeof="bibo:AcademicArticle">
+      <h1>$article.title</h1>
+      <div class="metadata">
+	<div id="citation-details">
+	  <span class="heading">author(s)</span> |
+
+$for creator in article.creators:
+       <a href="$creator.resUri" rel="dc:creator">$creator.name</a><br/>
+	  
+	  <span class="heading">publication details</span> | 
+	<span property="dc:date">$article.issued</span>,
+	<a href="$article.periodical.resUri"
+    rel="dc:isPartOf">$article.periodical.title</a>, <span
+    property="bibo:volume">$article.volume</span>(<span
+    property="bibo:issue">$article.issue</span>), <span
+    property="bibo:pageStart">$article.page_start</span>-<span
+    property="bibo:pageEnd">$article.page_end</span>,
+	  doi:<span property="bibo:doi">$article.doi</span>.
+      </div>
+      <div id="subjects">
+	<span class="heading">topics</span> | 
+$for subject in sorted(article.subjects):
+    <a href="$subject.resUri" rel="dc:subject">$subject.pref_label</a>,
+
+	
+        </div>
+      </div>
+    </div>
+   $:render.footer()
+  </body>
+</html>

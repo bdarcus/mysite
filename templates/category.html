@@ -1,0 +1,24 @@
+$def with (category)
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:bibo="http://purl.org/ontology/bibo/" 
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <head profile="http://www.w3.org/2003/g/data-view">
+    <title>$category.pref_label</title>
+    $:render.header()
+  </head>
+  <body>
+   $:render.menu()
+    <div id="content" about="$category.resUri">
+      <h1 property="skos:prefLabel">$category.pref_label</h1>
+      <div class="note">This feature needs more work; more soon.</div>
+    </div>
+   $:render.footer()
+  </body>
+</html>

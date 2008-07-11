@@ -1,0 +1,36 @@
+$def with (chapter)
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+    "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:bio="http://purl.org/vocab/bio/0.1/"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+
+  <head profile="http://www.w3.org/2003/g/data-view">
+    <title>$chapter.title</title>
+    $:render.header()
+  </head>
+  <body>
+   $:render.menu()
+    <div id="content" about="$chapter.resUri" typeof="bibo:Chapter">
+      <h1>$chapter.title</h1>
+      <div class="details">
+        <dl>
+          <dt>date</dt>
+	  <dd property="dc:date">$chapter.date</dd>
+	  <dt>subjects</dt>
+	  <dd>
+$for subject in chapter.subjects:
+    <a href="$subject.resUri">$subject.pref_label</a>
+
+	    
+	  </dd>
+	</dl>
+      </div>
+    </div>
+   $:render.footer()
+  </body>
+</html>

@@ -1,0 +1,265 @@
+
+@prefix : <http://bruce.darcus.name/about#>.
+@prefix bibo: <http://purl.org/ontology/bibo/>.
+@prefix bm: <http://www.w3.org/2002/01/bookmark#>.
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix mgbm: <http://ma.gnolia.com/people/bdarcus/bookmarks/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+ mgbm:cacikothird a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-05-12T10:36:59Z";
+     bm:recalls <http://dispatchesfrombeirut.blogspot.com/>. 
+
+ mgbm:chogurutu a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-05-29T13:51:37Z";
+     bm:recalls <http://www.nytimes.com/2008/05/29/us/29portland.html>. 
+
+ mgbm:clanora a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-08T13:00:37Z";
+     bm:recalls <http://www.nytimes.com/2008/06/08/nyregion/thecity/08chin.html>. 
+
+ mgbm:crichohe a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-03-30T16:02:58Z";
+     bm:recalls <http://www.nytimes.com/2008/03/30/magazine/30olympics-t.html>. 
+
+ mgbm:crowachoshuk a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-05-19T14:58:49Z";
+     bm:recalls <http://www.nytimes.com/2008/05/20/world/africa/20safrica.html>. 
+
+ mgbm:denemeye a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-28T21:11:23Z";
+     bm:recalls <http://www.washingtonpost.com/wp-dyn/content/article/2008/06/24/AR2008062401162.html>. 
+
+ mgbm:dofegoroz a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-05-10T10:13:01Z";
+     bm:recalls <http://www.nytimes.com/2008/05/10/business/10transit.html>. 
+
+ mgbm:gafutoshed a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-09T13:01:55Z";
+     bm:recalls <http://www.nytimes.com/interactive/2008/06/09/business/20080609_GAS_GRAPHIC.html>. 
+
+ mgbm:hastuste a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-22T01:21:20Z";
+     bm:recalls <http://www.nytimes.com/2008/06/22/business/22indiafood.html>. 
+
+ mgbm:kechascishu a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-05-21T15:48:24Z";
+     bm:recalls <http://www.nytimes.com/2008/05/21/washington/21fence.html>. 
+
+ mgbm:kitudira a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-09T13:31:03Z";
+     bm:recalls <http://www.csmonitor.com/2008/0606/p04s05-wome.html>. 
+
+ mgbm:kothitegef a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-17T14:51:23Z";
+     bm:recalls <http://www.csmonitor.com/2008/0618/p07s01-woaf.html>. 
+
+ mgbm:moloresto a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-04-30T15:32:11Z";
+     bm:recalls <http://www.nytimes.com/2008/05/01/us/01immig.html>. 
+
+ mgbm:prathichaqe a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-24T23:45:58Z";
+     bm:recalls <http://www.nytimes.com/2008/06/25/business/25exurbs.html>. 
+
+ mgbm:pribivuthad a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-05-01T13:26:25Z";
+     bm:recalls <http://www.washingtonpost.com/wp-dyn/content/article/2008/04/30/AR2008043003430.html>. 
+
+ mgbm:prufewapov a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-03-30T23:47:44Z";
+     bm:recalls <http://www.hrw.org/photos/2005/darfur/drawings/>. 
+
+ mgbm:seheme a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-09T13:03:48Z";
+     bm:recalls <http://www.nytimes.com/2008/06/09/business/09gas.html>. 
+
+ mgbm:sethashayo a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-30T15:36:40Z";
+     bm:recalls <http://www.nytimes.com/2008/06/30/business/worldbusiness/30trade.html>. 
+
+ mgbm:sicaco a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-03-09T00:08:42Z";
+     bm:recalls <http://www.nytimes.com/2008/03/09/world/americas/09colombia.html>. 
+
+ mgbm:sluzinofib a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-29T15:07:15Z";
+     bm:recalls <http://www.washingtonpost.com/wp-dyn/content/article/2008/06/28/AR2008062802124.html>. 
+
+ mgbm:taruvoti a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-09T15:26:15Z";
+     bm:recalls <http://www.nytimes.com/2008/06/10/world/europe/10fuel.html>. 
+
+ mgbm:tushufecu a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-04-03T10:08:14Z";
+     bm:recalls <http://www.nytimes.com/2008/04/03/world/asia/03china.html>. 
+
+ mgbm:twiduwopog a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-09T13:25:39Z";
+     bm:recalls <http://www.csmonitor.com/2008/0609/p20s01-woeu.html>. 
+
+ mgbm:vrisokasha a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-22T01:22:03Z";
+     bm:recalls <http://www.nytimes.com/2008/06/22/washington/22ksm.html>. 
+
+ mgbm:vrocuchost a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-10T00:00:18Z";
+     bm:recalls <http://www.nytimes.com/2008/06/10/us/10coal.html>. 
+
+ mgbm:vropumege a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-06-09T11:27:16Z";
+     bm:recalls <http://www.nytimes.com/2008/06/09/world/asia/09gated.html>. 
+
+ mgbm:whakohaz a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-05-01T14:43:56Z";
+     bm:recalls <http://www.nytimes.com/2008/05/02/world/asia/02china.html>. 
+
+ mgbm:xovequra a bm:Bookmark;
+     dc:creator :me;
+     dc:modified "2008-04-29T14:58:31Z";
+     bm:recalls <http://www.bbc.co.uk/scotland/education/geog/population/migration_map.shtml>. 
+
+ <http://dispatchesfrombeirut.blogspot.com/> a bibo:Document;
+     dc:title "Dispatches from Beirut". 
+
+ <http://www.bbc.co.uk> dc:title "BBC". 
+
+ <http://www.bbc.co.uk/scotland/education/geog/population/migration_map.shtml> a bibo:Article;
+     dc:isPartOf <http://www.bbc.co.uk>;
+     dc:title "BBC - Global Population - Migration Map". 
+
+ <http://www.csmonitor.com/2008/0606/p04s05-wome.html> a bibo:Article;
+     dc:isPartOf <http://www.csmonitor.com>;
+     dc:title "Food crisis: A daily quest for bread in Cairo". 
+
+ <http://www.csmonitor.com/2008/0609/p20s01-woeu.html> a bibo:Article;
+     dc:isPartOf <http://www.csmonitor.com>;
+     dc:title "Istanbul gentrifies a 1,000-year-old Roma neighborhood | csmonitor.com". 
+
+ <http://www.csmonitor.com/2008/0618/p07s01-woaf.html> a bibo:Article;
+     dc:isPartOf <http://www.csmonitor.com>;
+     dc:title "How a Kenyan village tripled its corn harvest | csmonitor.com". 
+
+ <http://www.hrw.org/photos/2005/darfur/drawings/> a bibo:Document;
+     dc:title "Human Rights Watch - Darfur Drawn: The Conflict in Darfur Through Children’s Eyes". 
+
+ <http://www.nytimes.com/2008/03/09/world/americas/09colombia.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Settling of Colombian Crisis Makes Andes a Winner, While Rebels Lose Ground - New York Times". 
+
+ <http://www.nytimes.com/2008/03/30/magazine/30olympics-t.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Olympic Games - China - Darfur - Human Rights - Protests - Mia Farrow - Dream for Darfur - New York Times". 
+
+ <http://www.nytimes.com/2008/04/03/world/asia/03china.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "China Confirms Protests by Uighur Muslims - New York Times". 
+
+ <http://www.nytimes.com/2008/05/01/us/01immig.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Fewer Latino Immigrants Sending Money Home - New York Times". 
+
+ <http://www.nytimes.com/2008/05/02/world/asia/02china.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Anti-French Boycott Stumbles in China - New York Times". 
+
+ <http://www.nytimes.com/2008/05/10/business/10transit.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Gas Prices Send Surge of Riders to Mass Transit - New York Times". 
+
+ <http://www.nytimes.com/2008/05/20/world/africa/20safrica.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Anti-Immigrant Violence Continues in South Africa - New York Times". 
+
+ <http://www.nytimes.com/2008/05/21/washington/21fence.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Homeland Security Stands by Its Fence - New York Times". 
+
+ <http://www.nytimes.com/2008/05/29/us/29portland.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Portland Journal - As Portland Changes, Blacks and Whites Talk It Over - NYTimes.com". 
+
+ <http://www.nytimes.com/2008/06/08/nyregion/thecity/08chin.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Dreams and Desperation on Forsyth Street - NYTimes.com". 
+
+ <http://www.nytimes.com/2008/06/09/business/09gas.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Rural U.S. Takes Worst Hit as Gas Tops $4 Average - NYTimes.com". 
+
+ <http://www.nytimes.com/2008/06/09/world/asia/09gated.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Inside Gate, India’s Good Life; Outside, the Slums - NYTimes.com". 
+
+ <http://www.nytimes.com/2008/06/10/us/10coal.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Coal Country Looks to Natural Gas - NYTimes.com". 
+
+ <http://www.nytimes.com/2008/06/10/world/europe/10fuel.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Spanish Truckers Block Border - NYTimes.com". 
+
+ <http://www.nytimes.com/2008/06/22/business/22indiafood.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "The Food Chain - In Fertile India, Population Has Outstripped Agriculture - Series - NYTimes.com". 
+
+ <http://www.nytimes.com/2008/06/22/washington/22ksm.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Inside a 9/11 Mastermind’s Interrogation - Series - NYTimes.com". 
+
+ <http://www.nytimes.com/2008/06/25/business/25exurbs.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "Rethinking the Country Life as Energy Costs Rise - NYTimes.com". 
+
+ <http://www.nytimes.com/2008/06/30/business/worldbusiness/30trade.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "The Food Chain - Hoarding Nations Drive Food Costs Ever Higher - Series - NYTimes.com". 
+
+ <http://www.nytimes.com/interactive/2008/06/09/business/20080609_GAS_GRAPHIC.html> a bibo:Article;
+     dc:isPartOf <http://www.nytimes.com>;
+     dc:title "The Varying Impact of Gas Prices - Interactive Graphic - NYTimes.com". 
+
+ <http://www.washingtonpost.com/wp-dyn/content/article/2008/04/30/AR2008043003430.html> a bibo:Article;
+     dc:isPartOf <http://www.washingtonpost.com>;
+     dc:title "D.C. Forging Surveillance Network - washingtonpost.com". 
+
+ <http://www.washingtonpost.com/wp-dyn/content/article/2008/06/24/AR2008062401162.html> a bibo:Article;
+     dc:isPartOf <http://www.washingtonpost.com>;
+     dc:title "Ways and Means - washingtonpost.com". 
+
+ <http://www.washingtonpost.com/wp-dyn/content/article/2008/06/28/AR2008062802124.html> a bibo:Article;
+     dc:isPartOf <http://www.washingtonpost.com>;
+     dc:title "A New Political Geography - washingtonpost.com". 
+
+ <http://www.csmonitor.com> dc:title "Christian Science Monitor". 
+
+ <http://www.washingtonpost.com> dc:title "Washington Post". 
+
+ <http://www.nytimes.com> dc:title "New York Times". 
