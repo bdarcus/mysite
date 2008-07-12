@@ -4,6 +4,25 @@ from rdflib import URIRef
 from rdflib.Graph import Graph
 from utils.site import *
 import markdown2
+from optparse import OptionParser
+from sys import stdout
+
+# commandline options
+
+opt_parser = OptionParser()
+opt_parser.set_usage("usage: mkstatic.py [options] [output directory]")
+opt_parser.add_option('-l', action="store_true", dest='links', 
+  help='generate links')
+opt_parser.add_option('-p', action="store_true", dest='pubs', 
+  help='generate publications')
+opt_parser.add_option('-c', action="store_true", dest='categories', 
+  help='generate categories')
+opt_parser.add_option('-f', action="store_true", dest='foaf', 
+  help='generate about page from faof')
+opt_parser.add_option('-a', action="store_true", dest='all', 
+  help='generate all')
+opts, args = opt_parser.parse_args()
+
 
 # creates a static version of the site
 
@@ -13,6 +32,10 @@ web.template.Template.globals['sorted'] = sorted
 web.template.Template.globals['rel_uri'] = get_relative_uri 
 web.template.Template.globals['markdown'] = markdown2.markdown
 
+if len(args) == 0:
+    print opt_parser.usage
+    exit()
+
 rdf = ["/Users/darcusb/myweb/meta/about.n3",
        "/Users/darcusb/myweb/meta/publications.n3",
        "/Users/darcusb/myweb/meta/categories.n3",
@@ -21,7 +44,7 @@ rdf = ["/Users/darcusb/myweb/meta/about.n3",
        "/Users/darcusb/myweb/meta/publishers.n3"
        ]
 
-outdir = '/Users/darcusb/Sites/home'
+outdir = args[0]
 
 graph = rdfSubject.db
 
@@ -33,7 +56,7 @@ print "triples in graph: " + str(len(graph))
 person_uri = 'http://bruce.darcus.name/about#me'
 me = Person(URIRef(person_uri))
 
-def foaf_to_html(person_uri):
+def foaf(person_uri):
     print "generating about page"
     filename = outdir 
     content = render.about(me).__str__()
@@ -41,7 +64,7 @@ def foaf_to_html(person_uri):
     write_file(filename + '/about.rdf', subgraph.serialize())
     write_file(filename + '/about.xhtml', content)
 
-def categories_to_html():
+def categories():
     print "generating categories pages"
     categories = sorted(Concept.ClassInstances())
     count = 0
@@ -65,7 +88,7 @@ def load_subjects(uri):
     else:
         graph.parse(uri)
 
-def pubs_to_html():
+def pubs():
     print "generating publications pages"
     articles = sorted(AcademicArticle.ClassInstances())
     books = sorted(Book.ClassInstances())
@@ -124,8 +147,8 @@ def pubs_to_html():
     print "          "  + str(bookcount) + " book page(s)"
     print "          "  + str(chaptercount) + " chapter page(s)"
 
-def links_to_html():
-    print "generating categories pages"
+def links():
+    print "generating links pages"
     links = sorted(Bookmark.ClassInstances())
     count = 0
 
@@ -155,8 +178,15 @@ def get_subgraph(s):
 
     return g
 
-foaf_to_html('http://bruce.darcus.name/about#me')
-categories_to_html()
-pubs_to_html()
-links_to_html()
+if opts.foaf or opts.all:
+    foaf('http://bruce.darcus.name/about#me')
+
+if opts.categories or opts.all:
+    categories()
+
+if opts.pubs or opts.all:
+    pubs()
+
+if opts.links or opts.all:
+    links()
 
