@@ -32,7 +32,7 @@ $for creator in book.creators:
       <div id="subjects">
 	<span class="heading">topics</span> | 
 $for subject in sorted(book.subjects):
-    <a href="$subject.resUri" rel="dc:subject">$subject.pref_label</a>,
+    <a href="$rel_uri(subject.resUri)" rel="dc:subject">$subject.pref_label</a>,
 
 	
         </div>

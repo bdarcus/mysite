@@ -5,7 +5,11 @@ import urlparse
 import web
 
 def get_relative_uri(uri):
-    return unicode(urlparse.urlsplit(uri)[2])
+    parsed = urlparse.urlsplit(uri)
+    if not parsed[0] == 'bruce.darcus.name':
+        return unicode(parsed[2])
+    else:
+        return uri
 
 def get_context(identifier):
     """Return a context graph for the given URI identifier"""
