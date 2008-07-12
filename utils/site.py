@@ -6,7 +6,7 @@ import web
 
 def get_relative_uri(uri):
     parsed = urlparse.urlsplit(uri)
-    if not parsed[0] == 'bruce.darcus.name':
+    if parsed[1] == 'bruce.darcus.name':
         return unicode(parsed[2])
     else:
         return uri
