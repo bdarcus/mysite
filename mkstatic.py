@@ -7,21 +7,39 @@ import markdown2
 from optparse import OptionParser
 from sys import stdout
 
-# commandline options
+def main():
+    # commandline options
+    opt_parser = OptionParser()
+    opt_parser.set_usage("usage:\n mkstatic.py [options] [output directory]")
+    opt_parser.add_option('-l', action="store_true", dest='links', 
+                          help='generate links')
+    opt_parser.add_option('-p', action="store_true", dest='pubs', 
+                          help='generate publications')
+    opt_parser.add_option('-c', action="store_true", dest='categories', 
+                          help='generate categories')
+    opt_parser.add_option('-f', action="store_true", dest='foaf', 
+                          help='generate about page from faof')
+    opt_parser.add_option('-a', action="store_true", dest='all', 
+                          help='generate all')
+    opts, args = opt_parser.parse_args()
 
-opt_parser = OptionParser()
-opt_parser.set_usage("usage: mkstatic.py [options] [output directory]")
-opt_parser.add_option('-l', action="store_true", dest='links', 
-  help='generate links')
-opt_parser.add_option('-p', action="store_true", dest='pubs', 
-  help='generate publications')
-opt_parser.add_option('-c', action="store_true", dest='categories', 
-  help='generate categories')
-opt_parser.add_option('-f', action="store_true", dest='foaf', 
-  help='generate about page from faof')
-opt_parser.add_option('-a', action="store_true", dest='all', 
-  help='generate all')
-opts, args = opt_parser.parse_args()
+    if len(args) == 0:
+        print opt_parser.usage
+        exit()
+
+    basedir = args[0]
+
+    if opts.foaf or opts.all:
+        foaf(basedir, 'http://bruce.darcus.name/about#me')
+
+    if opts.categories or opts.all:
+        categories(basedir)
+        
+    if opts.pubs or opts.all:
+        pubs(basedir)
+        
+    if opts.links or opts.all:
+        links(basedir)
 
 
 # creates a static version of the site
@@ -32,10 +50,6 @@ web.template.Template.globals['sorted'] = sorted
 web.template.Template.globals['rel_uri'] = get_relative_uri 
 web.template.Template.globals['markdown'] = markdown2.markdown
 
-if len(args) == 0:
-    print opt_parser.usage
-    exit()
-
 rdf = ["/Users/darcusb/myweb/meta/about.n3",
        "/Users/darcusb/myweb/meta/publications.n3",
        "/Users/darcusb/myweb/meta/categories.n3",
@@ -43,8 +57,6 @@ rdf = ["/Users/darcusb/myweb/meta/about.n3",
        "/Users/darcusb/myweb/meta/periodicals.n3",
        "/Users/darcusb/myweb/meta/publishers.n3"
        ]
-
-outdir = args[0]
 
 graph = rdfSubject.db
 
@@ -56,24 +68,23 @@ print "triples in graph: " + str(len(graph))
 person_uri = 'http://bruce.darcus.name/about#me'
 me = Person(URIRef(person_uri))
 
-def foaf(person_uri):
+def foaf(basedir, person_uri):
     print "generating about page"
-    filename = outdir 
     content = render.about(me).__str__()
     subgraph = get_subgraph(me.resUri)
-    write_file(filename + '/about.rdf', subgraph.serialize())
-    write_file(filename + '/about.xhtml', content)
+    write_file(basedir + '/about.rdf', subgraph.serialize())
+    write_file(basedir + '/about.xhtml', content)
 
-def categories():
+def categories(basedir):
     print "generating categories pages"
     categories = sorted(Concept.ClassInstances())
     count = 0
-    index_filename = outdir + '/categories/index.xhtml'
+    index_filename = basedir + '/categories/index.xhtml'
     index_content = render.categories(categories).__str__()
     write_file(index_filename, index_content)
     for category in categories:
         count += 1
-        filename = outdir + get_relative_uri(category.resUri)
+        filename = basedir + get_relative_uri(category.resUri)
         content = render.category(category).__str__()
         subgraph = get_subgraph(category.resUri)
         write_file(filename + '.rdf', subgraph.serialize())
@@ -88,7 +99,7 @@ def load_subjects(uri):
     else:
         graph.parse(uri)
 
-def pubs():
+def pubs(basedir):
     print "generating publications pages"
     articles = sorted(AcademicArticle.ClassInstances())
     books = sorted(Book.ClassInstances())
@@ -100,7 +111,7 @@ def pubs():
     chaptercount = 0
 
     # create index
-    index_filename = outdir + '/publications/index.xhtml'
+    index_filename = basedir + '/publications/index.xhtml'
     index_content = render.publications(me, articles, books).__str__()
     write_file(index_filename, index_content)
 
@@ -112,7 +123,7 @@ def pubs():
 
         # write out article files
         artcount += 1
-        filename = outdir + get_relative_uri(article.resUri)
+        filename = basedir + get_relative_uri(article.resUri)
         content = render.article(article).__str__()
         subgraph = get_subgraph(article.resUri)
         write_file(filename + '.rdf', subgraph.serialize())
@@ -124,7 +135,7 @@ def pubs():
 
         # write out book files
         bookcount += 1
-        filename = outdir + get_relative_uri(book.resUri)
+        filename = basedir + get_relative_uri(book.resUri)
         content = render.book(book).__str__()
         subgraph = get_subgraph(book.resUri)
         write_file(filename + '.rdf', subgraph.serialize())
@@ -136,7 +147,7 @@ def pubs():
 
         # write out chapter files
         chaptercount += 1
-        filename = outdir + get_relative_uri(chapter.resUri)
+        filename = basedir + get_relative_uri(chapter.resUri)
         content = render.chapter(chapter).__str__()
         subgraph = get_subgraph(chapter.resUri)
         write_file(filename + '.rdf', subgraph.serialize())
@@ -147,13 +158,13 @@ def pubs():
     print "          "  + str(bookcount) + " book page(s)"
     print "          "  + str(chaptercount) + " chapter page(s)"
 
-def links():
+def links(basedir):
     print "generating links pages"
     links = sorted(Bookmark.ClassInstances())
     count = 0
 
     # create index file
-    index_filename = outdir + '/links/index.xhtml'
+    index_filename = basedir + '/links/index.xhtml'
     index_content = render.links(links).__str__()
     write_file(index_filename, index_content)
 
@@ -178,15 +189,5 @@ def get_subgraph(s):
 
     return g
 
-if opts.foaf or opts.all:
-    foaf('http://bruce.darcus.name/about#me')
-
-if opts.categories or opts.all:
-    categories()
-
-if opts.pubs or opts.all:
-    pubs()
-
-if opts.links or opts.all:
-    links()
-
+if __name__ == "__main__":
+    main()
