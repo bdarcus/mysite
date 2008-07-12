@@ -15,24 +15,17 @@ $def with (person)
   </head>
   <body>
    $:render.menu()
-    <div id="content" about="http://bruce.darcus.name/about" typeof="foaf:PersonalProfileDocument">
-      <div id="me" about="#me" typeof="foaf:Person">
-	<div class="image"><img property="foaf:depiction" src="media/img/me.jpg" width="100%"/></div>
+    <div id="content" about="about" typeof="foaf:PersonalProfileDocument">
+      <div id="me" about="$person.resUri" typeof="foaf:Person">
+	<div class="image"><img property="foaf:depiction" src="$person.depiction" width="100%"/></div>
 	
-	<p property="dc:title">I am an <span
-         property="foaf:title">Associate Professor</span> of Geography
-         at Miami University of Ohio. I work at the intersection of
-         cultural, urban and political geography, with research
-         interests in the role of public space in contemporary
-         politics. My teaching and advising centers on two
-         broad themes: urban citizenship and public space, and the
-         politics of globalization.</p>
+	<p property="dc:title">$person.description</p>
       
         <dl>
 	  <dt>bio</dt>
-	  <dd property="bio:olb">geographer</dd>
+	  <dd property="bio:olb">$person.bio</dd>
 	  <dt>email</dt>
-	  <dd>bruce@darcus.name</dd>
+	  <dd>$person.mbox</dd>
 	  <dt>phone</dt>
 	  <dd>513-529-1521</dd>
 	  <dt>based near</dt>

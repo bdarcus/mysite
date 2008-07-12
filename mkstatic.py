@@ -6,6 +6,11 @@ from utils.site import *
 import markdown2
 from optparse import OptionParser
 from sys import stdout
+import os
+from os.path import dirname, join, split, splitext, expanduser
+
+config_file = os.path.join(os.path.dirname(__file__), 'config.py')
+config = eval(open(config_file).read())
 
 def main():
     # commandline options

@@ -3,10 +3,15 @@ from rdflib import ConjunctiveGraph, Namespace, Literal, URIRef
 from rdflib.Graph import Graph
 import urlparse
 import web
+import os
+from os.path import dirname, join, split, splitext, expanduser
+
+config_file = os.path.join(os.path.dirname(__file__), '../config.py')
+config = eval(open(config_file).read())
 
 def get_relative_uri(uri):
     parsed = urlparse.urlsplit(uri)
-    if parsed[1] == 'bruce.darcus.name':
+    if parsed[1] == config['site.uri'].split('//')[1]:
         return unicode(parsed[2])
     else:
         return uri
