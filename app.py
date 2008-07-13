@@ -3,7 +3,7 @@ import web
 import atexit
 from controllers import *
 from utils.site import *
-from bibo.models import *
+from models import *
 from rdflib import ConjunctiveGraph
 from rdflib.Graph import Graph
 from rdflib.store import Store

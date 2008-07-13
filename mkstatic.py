@@ -1,5 +1,5 @@
 import web
-from bibo.models import *
+from models import *
 from rdflib import URIRef
 from rdflib.Graph import Graph
 from utils.site import *

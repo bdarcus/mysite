@@ -24,19 +24,25 @@ $def with (person)
         <dl>
 	  <dt>bio</dt>
 	  <dd property="bio:olb">$person.bio</dd>
+
+$if person.mbox:
 	  <dt>email</dt>
 	  <dd>$person.mbox</dd>
-	  <dt>phone</dt>
-	  <dd>513-529-1521</dd>
+	  
+
+$if person.based_near:
 	  <dt>based near</dt>
-	  <dd><a href="http://sws.geonames.org/4520760/" rel="foaf:based_near">Oxford, Ohio</a></dd>
+	  <dd><a href="$person.based_near.resUri"
+	  rel="foaf:based_near">$person.based_near.name</a></dd>
+
+$if person.interests:
 	  <dt>interests</dt>
 	  <dd>
-	    <a rel="faof:interest" href="categories/public_space">public space</a>,
-	    <a rel="faof:interest" href="categories/citizenship">citizenship</a>,
-	    <a rel="faof:interest" href="categories/law">law</a>,
-	    <a rel="faof:interest" href="categories/media">media</a>,
-	    <a rel="faof:interest" href="categories/dissent">dissent</a>
+
+    $for interest in person.interests:
+	    <a rel="faof:interest" href="$rel_uri(interest.resUri)">$interest.pref_label</a>,
+
+	    
           </dd>
         </dl>
         <div class="quiet metadata">last modified <span about="http:///bruce.darcus.name/about" property="dc:modified" content="2008-06-15">June 15, 2008</span></div>
