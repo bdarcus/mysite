@@ -17,31 +17,53 @@ $def with (article)
    $:render.menu()
     <div id="content" about="$article.resUri" typeof="bibo:AcademicArticle">
       <h1>$article.title</h1>
-      <div class="metadata">
-	<div id="citation-details">
-	  <span class="heading">author(s)</span> |
+
+      <ul class="metadata-details">
+	<li>
+	  <span class="heading">Author(s): </span>
 
 $for creator in article.creators:
-       <a href="$creator.resUri" rel="dc:creator">$creator.name</a><br/>
-	  
-	  <span class="heading">publication details</span> | 
-	<span property="dc:date">$article.issued</span>,
-	<a href="$article.periodical.resUri"
-    rel="dc:isPartOf">$article.periodical.title</a>, <span
-    property="bibo:volume">$article.volume</span>(<span
-    property="bibo:issue">$article.issue</span>), <span
+       <a href="$creator.resUri" rel="dc:creator">$creator.name</a>
+
+	</li>
+	<li>  
+	  <span class="heading">Date: </span>
+	<span property="dc:date">
+$if article.issued:
+	$article.issued
+$else:
+	$article.date
+
+	
+	</span>
+	</li>
+	<li>
+	<span class="heading">Journal: </span><a href="$article.periodical.resUri"
+    rel="dc:isPartOf">$article.periodical.title</a>
+	</li>
+	<li>
+<span class="heading">Pages: </span><span
     property="bibo:pageStart">$article.page_start</span>-<span
-    property="bibo:pageEnd">$article.page_end</span>,
-	  doi:<span property="bibo:doi">$article.doi</span>.
-      </div>
-      <div id="subjects">
-	<span class="heading">topics</span> | 
+    property="bibo:pageEnd">$article.page_end</span>
+	</li>
+	<li>  
+	  <span class="heading">DOI: </span><span
+	property="dc:date">$article.doi</span>
+	</li>
+	<li><span class="heading">Volume/Issue: </span>
+<span
+    property="bibo:volume">$article.volume</span>/<span
+    property="bibo:issue">$article.issue</span>
+	</li>
+        <li>
+	<span class="heading">Topics:</span>
 $for subject in sorted(article.subjects):
     <a href="$rel_uri(subject.resUri)" rel="dc:subject">$subject.pref_label</a>,
 
 	
-        </div>
-      </div>
+        </li>
+      </ul>
+	 
     </div>
    $:render.footer()
   </body>

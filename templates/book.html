@@ -17,26 +17,28 @@ $def with (book)
    $:render.menu()
     <div id="content" about="$book.resUri" typeof="bibo:Book">
       <h1>$book.title</h1>
-      <div class="metadata">
-	<div id="citation-details">
-	  <span class="heading">author(s)</span> |
+      <ul class="metadata-details">
+	<li>
+	  <span class="heading">Author(s): </span>
 
 $for creator in book.creators:
-       <a href="$creator.resUri" rel="dc:creator">$creator.name</a><br/>
-	  
-	  <span class="heading">publication details</span> | 
-	<span property="dc:date">$book.date</span>,
-	<a href="$book.publisher.resUri"
-    rel="dc:publisher">$book.publisher.name</a>.
-      </div>
-      <div id="subjects">
-	<span class="heading">topics</span> | 
+       <a href="$creator.resUri" rel="dc:creator">$creator.name</a>
+
+	</li>
+	<li>  
+	  <span class="heading">Date: </span><span property="dc:date">$book.date</span>
+	</li>
+	<li>
+	<span class="heading">Publisher: </span><a href="$book.publisher.resUri" rel="dc:publisher">$book.publisher.name</a>
+        </li>
+        <li>
+	<span class="heading">Topics:</span>
 $for subject in sorted(book.subjects):
     <a href="$rel_uri(subject.resUri)" rel="dc:subject">$subject.pref_label</a>,
 
 	
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
    $:render.footer()
   </body>
