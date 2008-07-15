@@ -70,7 +70,7 @@ for root, dirs, files in os.walk(config['site.rdf_dir']):
 print "triples in graph: " + str(len(graph))
 
 def make_directories(base_dir):
-    for dir in ['publications', 'categories', 'links', 'publicatiopns/articles', 'publications/books', 'publications/chapters']:
+    for dir in ['publications', 'categories', 'links', 'publications/articles', 'publications/books', 'publications/chapters']:
         newdir = os.path.join(base_dir, dir)
         if os.path.isdir(newdir):
             pass
