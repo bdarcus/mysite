@@ -20,7 +20,7 @@ $def with (chapter)
       <ul class="metadata-details">
 	<li>
 	  <span class="heading">Author(s): </span>
-
+	
 $if chapter.creators:
     $for creator in chapter.creators:
        <a href="$creator.resUri" rel="dc:creator">$creator.name</a>
@@ -42,8 +42,10 @@ $else:
 	</li>
 
 	<li>  
-	  <span class="heading">Book Title: </span><span
-	  property="dc:title" about="***">$chapter.book.title</span>
+	  <span class="heading">Published In: </span>
+	  <a rel="dc:isPartOf" href="$rel_uri(chapter.book.resUri)">
+	    <span property="dc:title">$chapter.book.title</span>
+	  </a>
 	</li>
 	
         <li>
