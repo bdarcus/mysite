@@ -34,6 +34,8 @@ def main():
 
     basedir = args[0]
 
+    make_directories(basedir)
+
     if opts.foaf or opts.all:
         foaf(basedir, 'http://bruce.darcus.name/about#me')
 
@@ -65,6 +67,14 @@ for root, dirs, files in os.walk(config['site.rdf_dir']):
            graph.parse(filename, format='n3')
 
 print "triples in graph: " + str(len(graph))
+
+def make_directories(base_dir):
+    for dir in ['publications', 'categories', 'links']:
+        newdir = os.path.join(base_dir, dir)
+        if os.path.isdir(newdir):
+            pass
+        else:
+            os.mkdir(newdir)
 
 person_uri = 'http://bruce.darcus.name/about#me'
 me = Person(URIRef(person_uri))
