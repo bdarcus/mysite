@@ -38,22 +38,21 @@ $else:
 	</span>
 	</li>
 	<li>
-	<span class="heading">Journal: </span><a href="$article.periodical.resUri"
-    rel="dc:isPartOf">$article.periodical.title</a>
-	</li>
-	<li>
-<span class="heading">Pages: </span><span
-    property="bibo:pageStart">$article.page_start</span>-<span
-    property="bibo:pageEnd">$article.page_end</span>
+	  <span class="heading">Journal: </span>
+	  <a href="$article.periodical.resUri" rel="dc:isPartOf">$article.periodical.title</a>
 	</li>
 	<li>  
 	  <span class="heading">DOI: </span><span
 	property="dc:date">$article.doi</span>
 	</li>
-	<li><span class="heading">Volume/Issue: </span>
-<span
-    property="bibo:volume">$article.volume</span>/<span
-    property="bibo:issue">$article.issue</span>
+	<li>
+	  <span class="heading">Volume/Issue: </span>
+	  <span property="bibo:volume">$article.volume</span>/<span property="bibo:issue">$article.issue</span>
+	</li>
+	<li>
+          <span class="heading">Pages: </span>
+	  <span property="bibo:pageStart">$article.page_start</span>-<span
+    property="bibo:pageEnd">$article.page_end</span>
 	</li>
         <li>
 	<span class="heading">Topics:</span>

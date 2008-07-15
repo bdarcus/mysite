@@ -47,9 +47,10 @@ $else:
 	</li>
 	
         <li>
+$if chapter.subjects:
 	<span class="heading">Topics:</span>
-$for subject in sorted(chapter.subjects):
-    <a href="$rel_uri(subject.resUri)" rel="dc:subject">$subject.pref_label</a>,
+    $for subject in sorted(chapter.subjects):
+        <a href="$rel_uri(subject.resUri)" rel="dc:subject">$subject.pref_label</a>,
 
 
 	

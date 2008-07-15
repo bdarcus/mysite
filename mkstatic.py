@@ -60,7 +60,8 @@ rdf = ["/Users/darcusb/myweb/meta/about.n3",
        "/Users/darcusb/myweb/meta/categories.n3",
        "/Users/darcusb/myweb/meta/links.n3",
        "/Users/darcusb/myweb/meta/periodicals.n3",
-       "/Users/darcusb/myweb/meta/publishers.n3"
+       "/Users/darcusb/myweb/meta/publishers.n3",
+       "utils/mylcsh.n3"
        ]
 
 graph = rdfSubject.db
@@ -88,12 +89,13 @@ def categories(basedir):
     index_content = render.categories(categories).__str__()
     write_file(index_filename, index_content)
     for category in categories:
-        count += 1
-        filename = basedir + get_relative_uri(category.resUri)
-        content = render.category(category).__str__()
-        subgraph = get_subgraph(category.resUri)
-        write_file(filename + '.rdf', subgraph.serialize())
-        write_file(filename + '.xhtml', content)
+        if len(get_relative_uri(category.resUri).split('http://')) == 1:
+            count += 1
+            filename = basedir + get_relative_uri(category.resUri)
+            content = render.category(category).__str__()
+            subgraph = get_subgraph(category.resUri)
+            write_file(filename + '.rdf', subgraph.serialize())
+            write_file(filename + '.xhtml', content)
     print "    generated:"
     print "          "  + str(count) + " category page(s)"
 
@@ -133,7 +135,8 @@ def pubs(basedir):
     for book in books:
         # write out book files
         bookcount += 1
-        filename = basedir + get_relative_uri(book.resUri)
+        reluri = get_relative_uri(book.resUri)
+        filename = basedir + reluri + fnappend(reluri)
         content = render.book(book).__str__()
         subgraph = get_subgraph(book.resUri)
         write_file(filename + '.rdf', subgraph.serialize())
@@ -152,6 +155,14 @@ def pubs(basedir):
     print "          "  + str(artcount) + " article page(s)"
     print "          "  + str(bookcount) + " book page(s)"
     print "          "  + str(chaptercount) + " chapter page(s)"
+
+def fnappend(uri):
+    """ if uri ends with a slash, return a 'index' string to append """
+    if str(uri).split('/')[-1] == '':
+        return 'index'
+    else:
+        return None
+
 
 def links(basedir):
     print "generating links pages"

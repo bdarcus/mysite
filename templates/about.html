@@ -21,31 +21,37 @@ $def with (person)
 	
 	<p property="dc:title">$person.description</p>
       
-        <dl>
-	  <dt>bio</dt>
-	  <dd property="bio:olb">$person.bio</dd>
+        <ul class="metadata-details">
 
-$if person.mbox:
-	  <dt>email</dt>
-	  <dd>$person.mbox</dd>
 	  
+$if person.mbox:
+	  <li>
+	  <span class="heading">Email:  </span>
+	  <span property="$person.mbox>$person.mbox</span>
+	  </li>
+
+	  
+$if person.interests:
+	  <li>	  
+	  <span class="heading">Interests: </span>
+	  
+    $for interest in sorted(person.interests):
+	    <a rel="faof:interest"
+	    href="$rel_uri(interest.resUri)">$interest.pref_label</a>,
+
+	  
+	  </li>
 
 $if person.based_near:
-	  <dt>based near</dt>
-	  <dd><a href="$person.based_near.resUri"
-	  rel="foaf:based_near">$person.based_near.name</a></dd>
-
-$if person.interests:
-	  <dt>interests</dt>
-	  <dd>
-
-    $for interest in person.interests:
-	    <a rel="faof:interest" href="$rel_uri(interest.resUri)">$interest.pref_label</a>,
+	  <li>
+	  <span class="heading">Location: </span>
+	  <a href="$person.based_near.resUri"
+	  rel="foaf:based_near">$person.based_near.name</a>
+	  </li>
 
 	    
-          </dd>
-        </dl>
-        <div class="quiet metadata">last modified <span about="http:///bruce.darcus.name/about" property="dc:modified" content="2008-06-15">June 15, 2008</span></div>
+        </ul>
+        <div class="quiet metadata">last modified <span about="http:///bruce.darcus.name/about" property="dc:modified" content="2008-06-15">July 15, 2008</span></div>
       </div>
     </div>
    $:render.footer()

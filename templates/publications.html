@@ -19,7 +19,7 @@ $def with (author, articles, books, chapters)
         <ul>
 $for book in books:
     $if book.title:
-          <li>$book.date, <a href="$rel_uri(book.resUri)">$book.title</a></li>
+          <li>$book.date, <a href="$rel_uri(book.resUri)">$book.title</a>.</li>
 
 	  
         </ul>

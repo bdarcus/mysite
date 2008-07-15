@@ -13,7 +13,11 @@ concepts = [
     "http://lcsh.info/sh85075119#concept",
     "http://lcsh.info/sh89001033#concept",
     "http://lcsh.info/sh85075801#concept",
-    "http://lcsh.info/sh89001287#concept"
+    "http://lcsh.info/sh89001287#concept",
+    "http://lcsh.info/sh85148586#concept",
+    "http://lcsh.info/sh2001000147#concept",
+    "http://lcsh.info/sh2002002388#concept",
+    "http://lcsh.info/sh85023243#concept"
 ]
 
 graph = ConjunctiveGraph()

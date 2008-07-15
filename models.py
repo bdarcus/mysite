@@ -32,6 +32,11 @@ BM = Namespace('http://www.w3.org/2002/01/bookmark#')
 RDF = Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 BIO = Namespace('http://purl.org/vocab/bio/0.1/')
 GEONAMES = Namespace('http://www.geonames.org/ontology#')
+SIOCT = Namespace('http://rdfs.org/sioc/types#')
+
+class Category(rdfSubject):
+    rdf_type = SIOCT['Category']
+    pref_label = rdfSingle(SKOS.prefLabel)
 
 class Bookmark(rdfSubject):
     rdf_type = BM['Bookmark']

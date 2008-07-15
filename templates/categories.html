@@ -19,6 +19,7 @@ $:render.menu()
       <h1 class="title">Categories</h1>
       <ul>
 $for category in categories:
+    $if len(rel_uri(category.resUri).split('http://')) == 1:
         <li><a href="$rel_uri(category.resUri)">$category.pref_label</a></li>
 
       </ul>
