@@ -114,8 +114,18 @@ class Journal(Periodical):
 
 class Chapter(Document):
     rdf_type = BIBO.Chapter
-    # reference to a Book
-    book = rdfSingle(DC.isPartOf, range_type=BIBO.EditedBook)
+    # a book can be tied to either a standalone Book, or an EditedBook
+    book = rdfSingle(DC.isPartOf, range_type=BIBO.Book)
+    edited_book = rdfSingle(DC.isPartOf, range_type=BIBO.EditedBook)
+
+    @property
+    # is chapter part of an edited collection, or of a complete book?
+    # NOT WORKING
+    def standalone(self):
+        if len(self.edited_book.editors) > 0:
+            return True
+        else:
+            return False
 
 class Review(Article):
     # reviewed resource

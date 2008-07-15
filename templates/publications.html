@@ -1,4 +1,4 @@
-$def with (author, articles, books)
+$def with (author, articles, books, chapters)
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
     "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
@@ -33,7 +33,22 @@ $for article in articles:
 
 	  
         </ul>
+	
       </div>
+
+      <div id="chapters">
+	<h2>Chapters</h2>
+        <ul>
+$for chapter in chapters:
+    $if chapter.standalone:
+          <li>$chapter.date, <a
+	href="$rel_uri(chapter.resUri)">$chapter.title</a>, in <em>$chapter.book.title</em>.</li>
+
+	  
+        </ul>
+	
+      </div>
+      
       </div>
       $:render.footer()
   </body>

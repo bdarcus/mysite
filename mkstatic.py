@@ -117,15 +117,11 @@ def pubs(basedir):
 
     # create index
     index_filename = basedir + '/publications/index.xhtml'
-    index_content = render.publications(me, articles, books).__str__()
+    index_content = render.publications(me, articles, books, chapters).__str__()
     write_file(index_filename, index_content)
 
     # iterate through pubs
     for article in articles:
-        # grab external triples (from, for example, lcsh.info)
-        for asub in article.subjects:
-            load_subjects(asub.resUri)
-
         # write out article files
         artcount += 1
         filename = basedir + get_relative_uri(article.resUri)
@@ -135,9 +131,6 @@ def pubs(basedir):
         write_file(filename + '.xhtml', content)
 
     for book in books:
-        for bsub in book.subjects:
-            load_subjects(bsub.resUri)
-
         # write out book files
         bookcount += 1
         filename = basedir + get_relative_uri(book.resUri)
@@ -147,9 +140,6 @@ def pubs(basedir):
         write_file(filename + '.xhtml', content)
 
     for chapter in chapters:
-        for csub in chapter.subjects:
-            load_subjects(csub.resUri)
-
         # write out chapter files
         chaptercount += 1
         filename = basedir + get_relative_uri(chapter.resUri)

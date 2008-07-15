@@ -17,19 +17,44 @@ $def with (chapter)
    $:render.menu()
     <div id="content" about="$chapter.resUri" typeof="bibo:Chapter">
       <h1>$chapter.title</h1>
-      <div class="details">
-        <dl>
-          <dt>date</dt>
-	  <dd property="dc:date">$chapter.date</dd>
-	  <dt>subjects</dt>
-	  <dd>
-$for subject in chapter.subjects:
-    <a href="$subject.resUri">$subject.pref_label</a>
+      <ul class="metadata-details">
+	<li>
+	  <span class="heading">Author(s): </span>
 
-	    
-	  </dd>
-	</dl>
-      </div>
+$if chapter.creators:
+    $for creator in chapter.creators:
+       <a href="$creator.resUri" rel="dc:creator">$creator.name</a>
+$else:
+    $for creator in chapter.book.creators:
+       <a href="$creator.resUri" rel="dc:creator">$creator.name</a>
+
+	
+	</li>
+	<li>  
+	  <span class="heading">Date: </span><span property="dc:date">
+$if chapter.date:
+    $chapter.date
+$else:
+    $chapter.book.date
+
+	
+	</span>
+	</li>
+
+	<li>  
+	  <span class="heading">Book Title: </span><span
+	  property="dc:title" about="***">$chapter.book.title</span>
+	</li>
+	
+        <li>
+	<span class="heading">Topics:</span>
+$for subject in sorted(chapter.subjects):
+    <a href="$rel_uri(subject.resUri)" rel="dc:subject">$subject.pref_label</a>,
+
+
+	
+        </li>
+      </ul>
     </div>
    $:render.footer()
   </body>

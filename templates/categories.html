@@ -11,13 +11,15 @@ $def with (categories)
 
   <head profile="http://www.w3.org/2003/g/data-view">
     <title>Categories</title>
+$:render.header()
   </head>
   <body>
+$:render.menu()
     <div id="content">
       <h1 class="title">Categories</h1>
       <ul>
 $for category in categories:
-        <li><a href="category.resUri">$category.pref_label</a></li>
+        <li><a href="$rel_uri(category.resUri)">$category.pref_label</a></li>
 
       </ul>
     </div>
