@@ -55,19 +55,13 @@ web.template.Template.globals['sorted'] = sorted
 web.template.Template.globals['rel_uri'] = get_relative_uri 
 web.template.Template.globals['markdown'] = markdown2.markdown
 
-rdf = ["/Users/darcusb/myweb/meta/about.n3",
-       "/Users/darcusb/myweb/meta/publications.n3",
-       "/Users/darcusb/myweb/meta/categories.n3",
-       "/Users/darcusb/myweb/meta/links.n3",
-       "/Users/darcusb/myweb/meta/periodicals.n3",
-       "/Users/darcusb/myweb/meta/publishers.n3",
-       "utils/mylcsh.n3"
-       ]
-
 graph = rdfSubject.db
 
-for file in rdf:
-    graph.parse(file, format='n3')
+for root, dirs, files in os.walk(config['site.rdf_dir']):
+   for name in files:       
+       filename = os.path.join(root, name)
+       if filename.endswith('.n3'):
+           graph.parse(filename, format='n3')
 
 print "triples in graph: " + str(len(graph))
 
