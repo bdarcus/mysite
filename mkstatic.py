@@ -61,6 +61,7 @@ for root, dirs, files in os.walk(config['site.rdf_dir']):
    for name in files:       
        filename = os.path.join(root, name)
        if filename.endswith('.n3'):
+           print filename
            graph.parse(filename, format='n3')
 
 print "triples in graph: " + str(len(graph))
