@@ -54,6 +54,7 @@ def main():
 render = web.template.render('templates/', cache=False)
 web.template.Template.globals['render'] = render 
 web.template.Template.globals['sorted'] = sorted 
+web.template.Template.globals['len'] = len
 web.template.Template.globals['rel_uri'] = get_relative_uri 
 web.template.Template.globals['markdown'] = markdown2.markdown
 
