@@ -62,8 +62,25 @@ $for subject in sorted(article.subjects):
 	
         </li>
       </ul>
+
+      <div id="disqus_thread"></div><script type="text/javascript" src="http://disqus.com/forums/bdarcus/embed.js"></script><noscript><a href="http://bdarcus.disqus.com/?url=ref">View the forum thread.</a></noscript><a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 	 
     </div>
    $:render.footer()
+    <script type="text/javascript">
+//<[CDATA[
+(function() {
+		var links = document.getElementsByTagName('a');
+		var query = '?';
+		for(var i = 0; i < links.length; i++) {
+			if(links[i].href.indexOf('#disqus_thread') >= 0) {
+				query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+			}
+		}
+		document.write('<script type="text/javascript" src="http://disqus.com/forums/bdarcus/get_num_replies.js' + query + '"></' + 'script>');
+	})();
+//]]>
+</script>
+
   </body>
 </html>
