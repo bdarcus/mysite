@@ -122,6 +122,10 @@ class Chapter(Document):
     # a book can be tied to either a standalone Book, or an EditedBook
     book = rdfSingle(DC.isPartOf, range_type=BIBO.Book)
     edited_book = rdfSingle(DC.isPartOf, range_type=BIBO.EditedBook)
+    chapter = rdfSingle(BIBO.chapter)
+
+    # need to be able to sort by chapter number
+
 
     @property
     # is chapter part of an edited collection, or of a complete book?
