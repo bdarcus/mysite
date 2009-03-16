@@ -20,7 +20,7 @@ from rdflib import Namespace
 import urlparse
 from rdfalchemy import rdfSubject, rdfsSubject, rdfSingle, rdfMultiple
 from rdfalchemy.orm import mapper
-import sha
+import hashlib
 
 DC = Namespace('http://purl.org/dc/terms/')
 BIBO = Namespace('http://purl.org/ontology/bibo/')
@@ -196,7 +196,7 @@ class Agent(rdfSubject):
     generates a hashed email address
     """
     def gen_mbox_sha1sum(mbox):
-        return sha.sha(mbox).hexdigest()
+        return hashlib.sha1(mbox).hexdigest()
 
     rdf_type = FOAF.Agent
     name = rdfSingle(FOAF.name)
