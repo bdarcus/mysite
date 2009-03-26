@@ -27,7 +27,7 @@ $def with (person)
 $if person.mbox:
 	  <li>
 	  <span class="heading">Email:  </span>
-	  <span property="$person.mbox>$person.mbox</span>
+	  <span property="foaf:mbox">$person.mbox</span>
 	  </li>
 
 	  
@@ -36,7 +36,7 @@ $if person.interests:
 	  <span class="heading">Interests: </span>
 	  
     $for interest in sorted(person.interests):
-	    <a rel="faof:interest"
+	    <a rel="foaf:interest"
 	    href="$rel_uri(interest.resUri)">$interest.pref_label</a>,
 
 	  
