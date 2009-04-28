@@ -37,7 +37,7 @@ def main():
     make_directories(basedir)
 
     if opts.foaf or opts.all:
-        foaf(basedir, 'http://bruce.darcus.name/about#me')
+        foaf(basedir, config['about.uri'])
 
     if opts.categories or opts.all:
         categories(basedir)
