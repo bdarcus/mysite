@@ -1,6 +1,4 @@
-========
-MySite
-========
+# MySite
 
 This is a personal website application designed for my own use as 
 a scholar and teacher who has to manage a lot of disparate 
@@ -15,8 +13,7 @@ and do:
 	python application.py
 
 
-Requirements
-=============
+## Requirements
 
 * RDFLib
 * RDFAlchemy
