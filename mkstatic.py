@@ -9,10 +9,28 @@ from sys import stdout
 import os
 from os.path import dirname, join, split, splitext, expanduser
 
-config_file = os.path.join(os.path.dirname(__file__), 'config.py')
-config = eval(open(config_file).read())
+render = web.template.render('templates/', cache=False)
+web.template.Template.globals['render'] = render 
+web.template.Template.globals['sorted'] = sorted 
+web.template.Template.globals['len'] = len
+web.template.Template.globals['rel_uri'] = get_relative_uri 
+web.template.Template.globals['markdown'] = markdown2.markdown
+
+graph = rdfSubject.db
 
 def main():
+    try:
+        config_file = os.path.join(os.path.dirname(__file__), '../config.py')
+        config = eval(open(config_file).read())
+    except:
+        print("Make sure you have a config.py file.")
+        
+        try: 
+            person_uri = config['about.uri']
+            me = Person(URIRef(person_uri))
+        except:
+            print("Make sure you have a config.py file, and an about.uri defined there.")
+            
     # commandline options
     opt_parser = OptionParser()
     opt_parser.set_usage("usage:\n mkstatic.py [options] [output directory]")
@@ -36,6 +54,9 @@ def main():
 
     make_directories(basedir)
 
+    if opts:
+        load_triples()
+
     if opts.foaf or opts.all:
         foaf(basedir, config['about.uri'])
 
@@ -49,25 +70,18 @@ def main():
         links(basedir)
 
 
-# creates a static version of the site
 
-render = web.template.render('templates/', cache=False)
-web.template.Template.globals['render'] = render 
-web.template.Template.globals['sorted'] = sorted 
-web.template.Template.globals['len'] = len
-web.template.Template.globals['rel_uri'] = get_relative_uri 
-web.template.Template.globals['markdown'] = markdown2.markdown
+def load_triples():
+    """
+    """
+    for root, dirs, files in os.walk(config['site.rdf_dir']):
+        for name in files:       
+            filename = os.path.join(root, name)
+            if filename.endswith('.n3'):
+                print filename
+                graph.parse(filename, format='n3')
+    print "triples in graph: " + str(len(graph))
 
-graph = rdfSubject.db
-
-for root, dirs, files in os.walk(config['site.rdf_dir']):
-   for name in files:       
-       filename = os.path.join(root, name)
-       if filename.endswith('.n3'):
-           print filename
-           graph.parse(filename, format='n3')
-
-print "triples in graph: " + str(len(graph))
 
 def make_directories(base_dir):
     for dir in ['publications', 'categories', 'links', 'publications/articles', 'publications/books', 'publications/chapters']:
@@ -77,8 +91,6 @@ def make_directories(base_dir):
         else:
             os.mkdir(newdir)
 
-person_uri = config['about.uri']
-me = Person(URIRef(person_uri))
 
 def foaf(basedir, person_uri):
     print "generating about page"
