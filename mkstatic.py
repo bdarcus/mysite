@@ -77,7 +77,7 @@ def make_directories(base_dir):
         else:
             os.mkdir(newdir)
 
-person_uri = 'http://bruce.darcus.name/about#me'
+person_uri = config['about.uri']
 me = Person(URIRef(person_uri))
 
 def foaf(basedir, person_uri):
