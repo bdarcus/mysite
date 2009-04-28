@@ -11,14 +11,13 @@ Adding new objects just involves adding a URL mapping and a template.
 
 ## Usage
 
-This application has two different modes: static and dynamic.
+This application has two different modes: static and dynamic. In either case, first create a config.py file similar to the config.py.sample.
 
 To generate a static site, run the following:
 
 	python mkstatic.py [options] [output directory]
 
-To run, create a config.py file similar to the config.py.sample, 
-and do:
+To run dynamically, simply do:
 
 	python application.py
 
