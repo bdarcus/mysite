@@ -18,18 +18,14 @@ web.template.Template.globals['markdown'] = markdown2.markdown
 
 graph = rdfSubject.db
 
+config_file = os.path.join(os.path.dirname(__file__), 'config.py')
+config = eval(open(config_file).read())
+
+person_uri = config['about.uri']
+me = Person(URIRef(person_uri))
+
+
 def main():
-    try:
-        config_file = os.path.join(os.path.dirname(__file__), '../config.py')
-        config = eval(open(config_file).read())
-    except:
-        print("Make sure you have a config.py file.")
-        
-        try: 
-            person_uri = config['about.uri']
-            me = Person(URIRef(person_uri))
-        except:
-            print("Make sure you have a config.py file, and an about.uri defined there.")
             
     # commandline options
     opt_parser = OptionParser()
