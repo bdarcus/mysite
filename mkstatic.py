@@ -29,7 +29,7 @@ def main():
             
     # commandline options
     opt_parser = OptionParser()
-    opt_parser.set_usage("usage:\n mkstatic.py [options] [output directory]")
+    opt_parser.set_usage("mkstatic.py [options] [output directory]")
     opt_parser.add_option('-l', action="store_true", dest='links', 
                           help='generate links')
     opt_parser.add_option('-p', action="store_true", dest='pubs', 
@@ -37,7 +37,7 @@ def main():
     opt_parser.add_option('-c', action="store_true", dest='categories', 
                           help='generate categories')
     opt_parser.add_option('-f', action="store_true", dest='foaf', 
-                          help='generate about page from faof')
+                          help='generate about page from foaf')
     opt_parser.add_option('-a', action="store_true", dest='all', 
                           help='generate all')
     opts, args = opt_parser.parse_args()
